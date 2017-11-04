@@ -26,7 +26,7 @@ include_directories(${FPLUS_INCLUDE_DIR})
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-set(sources src/map.cpp src/state_machine.cpp src/vehicle.cpp)
+set(sources src/map.cpp src/vehicle.cpp)
 
 
 

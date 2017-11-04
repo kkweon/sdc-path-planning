@@ -11,7 +11,6 @@
 #include "json.hpp"
 #include "map.hpp"
 #include "spline.h"
-#include "state_machine.hpp"
 #include "variables.hpp"
 #include "vehicle.hpp"
 
@@ -79,25 +78,12 @@ int main() {
           int prev_size      = state.previous_path_x.size();
           json msgJson;
 
-          // TODO: define a path made up of (x,y) points that the car will visit
+          // Need to define a path made up of (x,y) points that the car will
+          // visit
           // sequentially every .02 seconds
           if (prev_size > 0) {
             state.s = state.end_path_s;
           }
-
-          // bool too_close          = false;
-          // maybe<int> current_lane = get_driving_lane(state);
-          // bool left_is_safe       = true;
-          // bool right_is_safe      = true;
-
-          // double space_on_left  = 10000;
-          // double space_on_right = 10000;
-
-          // if (current_lane == just<int>(0)) {
-          //   left_is_safe = false;
-          // } else if (current_lane == just<int>(2)) {
-          //   right_is_safe = false;
-          // }
 
           const auto distances = fwd::apply(
               state.sensor_fusions,
@@ -136,7 +122,7 @@ int main() {
 
           for (const auto& row : distances) {
             // valid [lane_id, [front_dist, back_dist]]
-            const int check_lane = row.first;
+            const int check_lane    = row.first;
             const double front_dist = row.second.first;
             const double back_dist  = row.second.second;
 
@@ -167,7 +153,6 @@ int main() {
             }
           }
 
-
           if (too_close) {
             if (!left_safe && !right_safe) {
               ref_vel -= .4;
@@ -185,7 +170,6 @@ int main() {
           } else if (ref_vel < env::MAX_VELOCITY) {
             ref_vel += .4;
           }
-
 
           // A list of widely spaced (x, y) waypoints, evenly spaced at 30m
           // It's going to be interpolated later
