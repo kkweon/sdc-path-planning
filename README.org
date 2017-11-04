@@ -31,6 +31,15 @@ First, conversion to fernet coordinate makes thing much simpler.
 Fernet coordinate is just like the cartesian coordinates but it's respect to the road.
 Thus, it will be straight line even if the road is wavy.
 
+For the next step, I used the spline library to generate trajectories.
+
+Before generating splines, I rotated the ~(s, d)~ coordinates to the clockwise 90 degree such that the angle is zero and ~s~ becomes x-axis and ~d~ becomes y-axis.
+
+In order to rotate, a simple matrix multiplication will do the job.
+
+#+HTML: <img src="assets/rotation.svg" />
+
+And then generate the spline. Note that it's much easier since it's just a regular ~y = f(x)~ graph now after the rotation and conversion.
 
 
 ** Sensor Data
