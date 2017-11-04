@@ -1,6 +1,6 @@
 * Path Planning Project
 
-#+HTML: <img src="assets/demo.gif" alt="demo" width="512" height="512" />
+#+HTML: <div align="center"><img src="assets/demo.gif" alt="demo" width="512" height="512" /></div>
 
 ** Data
 
