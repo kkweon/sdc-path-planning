@@ -26,7 +26,7 @@ I used a simple model such that
 It's the most difficult part of the project.
 First, conversion to fernet coordinate makes thing much simpler.
 
-[[assets/demo.gif]]
+[[assets/fernet.png]]
 
 Fernet coordinate is just like the cartesian coordinates but it's respect to the road.
 Thus, it will be straight line even if the road is wavy.
